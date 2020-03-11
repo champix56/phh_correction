@@ -9,8 +9,9 @@ if(isset($_GET['page'])){
         case 'produits':
             include('produits/produits.php');
             break;
-        case 'produits':
-            include('produits/produits.php');
+        case 'produit':
+            if(isset($_GET['edit']))include('produits/produit.form.php');
+            else include('produits/produit.php');
             break;
         default:
             include('vues/404.php'); 
