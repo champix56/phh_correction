@@ -30,3 +30,7 @@ creation minimaliste des vues de l'pplication sans dynamisation php
     - authentifiction
     - error 404
 
+## 3. Navbar
+    - ajout d'une navbar bootstrap 3 de couleur noir 
+    - creation des items de navbar & liens
+    
