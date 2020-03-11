@@ -1,3 +1,4 @@
+/* Section contenu principal */
 body{
     color : blue;
 }
@@ -8,9 +9,11 @@ body{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     min-height: 80vh;
+    padding-bottom:20px;
 }
 header{
     background-image: url(../img/header.jpg);
+    background-size: cover;
     height: 200px;
     text-align: center;
     padding-top:70px;
@@ -23,4 +26,25 @@ header{
     text-align: center;
     color: black;
     display: block  ;
+}
+/* Section class global */
+.border-bottom{
+    border-bottom:1px solid gray;
+}
+.align-right{
+    text-align:right;
+}
+.btn{
+    border-radius: 5px;
+    background-color: lightskyblue;
+    padding:5px;
+}
+.btn-error{
+    background-color: orangered;
+}
+.btn-success{
+    background-color: greenyellow;
+}
+.inline-block{
+    display: inline-block;
 }
