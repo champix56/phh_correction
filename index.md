@@ -29,3 +29,4 @@ creation minimaliste des vues de l'pplication sans dynamisation php
     - édition d'un produit
     - authentifiction
     - error 404
+
