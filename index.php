@@ -9,7 +9,7 @@
     <body>
         <div id="main">
             <header><h1>Mon site d'achat php</h1></header>
-            <h1>Bienvenue sur le template de site php</h1>
+            <?php include_once('vues/dispatcher.php'); ?>
         </div>
         <div id="footer">DESORBAIX &copy; 2020</div>
     </body>
