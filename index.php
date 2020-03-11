@@ -8,7 +8,9 @@
     </head>
     <body>
         <div id="main">
+            <header><h1>Mon site d'achat php</h1></header>
             <h1>Bienvenue sur le template de site php</h1>
         </div>
+        <div id="footer">DESORBAIX &copy; 2020</div>
     </body>
 </html>

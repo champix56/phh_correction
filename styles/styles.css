@@ -6,4 +6,21 @@ body{
     margin-left: 5%;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    min-height: 80vh;
+}
+header{
+    background-image: url(../img/header.jpg);
+    height: 200px;
+    text-align: center;
+    padding-top:70px;
+    padding-bottom:0;
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+}
+#footer{
+    text-align: center;
+    color: black;
+    display: block  ;
 }
