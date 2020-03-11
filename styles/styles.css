@@ -1,0 +1,9 @@
+body{
+    color : blue;
+}
+#main{
+    width: 90%;
+    margin-left: 5%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
