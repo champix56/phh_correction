@@ -16,6 +16,7 @@
         <div id="main">
             <header><h1>Mon site d'achat php</h1></header>
              <?php include_once('vues/navbar.php'); ?>
+            <?php include_once('vues/dispatcher.php'); ?>
         </div>
         <div id="footer">DESORBAIX &copy; 2020</div>
     </body>
