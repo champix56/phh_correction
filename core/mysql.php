@@ -33,14 +33,14 @@ class BaseDeDonnees{
     }
     public function getProduit($id)
     {
-        $ret=$this->query("SELECT `idp`, `titre`, `description`, `dimensions`, `poids`, `rating`, `ean`, `prix`, `idcat` FROM `produit` WHERE `idp`=$id");
+        $ret=$this->query("SELECT `idp`, `titre`, `description`, `dimensions`, `poids`, `rating`, `ean`, `prix`, `idcat`, `imgurl` FROM `produit` WHERE `idp`=$id");
         if($ret->num_rows==0)return NULL;
         $result=mysqli_fetch_array($ret);
         return $result;
     }
     public function getProduits($titre='')
     {
-        $ret=$this->query("SELECT `idp`, `titre`, `description`, `rating`, `prix`, `idcat` FROM `produit` WHERE titre LIKE '%$titre%'");
+        $ret=$this->query("SELECT `idp`, `titre`, `description`, `rating`, `prix`, `imgurl`, `idcat` FROM `produit` WHERE titre LIKE '%$titre%'");
         if($ret->num_rows==0)return NULL;
         $arr=array();
         while($uneligne=mysqli_fetch_array($ret))
