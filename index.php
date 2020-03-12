@@ -1,3 +1,8 @@
+<?php 
+    //$_DEBUG=false;;
+    //inclusion des dependances de projet
+    include_once('core/core.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
