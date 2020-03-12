@@ -1,7 +1,9 @@
 <?php 
-    //$_DEBUG=false;;
-    //inclusion des dependances de projet
-    include_once('core/core.php');
+    session_start();
+        //inclusion des dependances de projet
+        include_once('core/core.php');
+    $_DEBUG=true;
+    d_vardump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
