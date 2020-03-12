@@ -33,4 +33,6 @@ creation minimaliste des vues de l'pplication sans dynamisation php
 ## 3. Navbar
     - ajout d'une navbar bootstrap 3 de couleur noir 
     - creation des items de navbar & liens
-    
+
+## 4. ajout du fichier de bdd
+    - export de la base sql 
