@@ -31,5 +31,12 @@ class BaseDeDonnees{
         $result=mysqli_fetch_array($ret);
         return ($result[0]==1) ? true : false;
     }
+    public function getProduit($id)
+    {
+        $ret=$this->query("SELECT `idp`, `titre`, `description`, `dimensions`, `poids`, `rating`, `ean`, `prix`, `idcat` FROM `produit` WHERE `idp`=$id");
+        if($ret->num_rows==0)return NULL;
+        $result=mysqli_fetch($ret);
+        return $result;
+    }
 }
 ?>
