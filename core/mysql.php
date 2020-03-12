@@ -35,8 +35,19 @@ class BaseDeDonnees{
     {
         $ret=$this->query("SELECT `idp`, `titre`, `description`, `dimensions`, `poids`, `rating`, `ean`, `prix`, `idcat` FROM `produit` WHERE `idp`=$id");
         if($ret->num_rows==0)return NULL;
-        $result=mysqli_fetch($ret);
+        $result=mysqli_fetch_array($ret);
         return $result;
+    }
+    public function getProduits($titre='')
+    {
+        $ret=$this->query("SELECT `idp`, `titre`, `description`, `rating`, `prix`, `idcat` FROM `produit` WHERE titre LIKE '%$titre%'");
+        if($ret->num_rows==0)return NULL;
+        $arr=array();
+        while($uneligne=mysqli_fetch_array($ret))
+        {
+            array_push($arr,$uneligne);
+        }
+        return $arr;
     }
 }
 ?>
