@@ -4,10 +4,14 @@
         if(isset($_DEBUG) && $_DEBUG==true)var_dump($variable);
     }
     function disconnect(){
-        session_unset();
+        session_destroy();
     }
     function checkAuthent(){
-        if(isset($_POST["login"]))
+        if(isset($_GET["deconnexion"])){
+            disconnect();
+          //  header('Location:index.php?page=authentification');
+        }
+        else if(isset($_POST["login"]))
         {
             global $db;//usage de la variable global db innexistante dans ma fonction
             $valid=$db->authent($_POST["login"],$_POST["password"]);
