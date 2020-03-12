@@ -1,10 +1,19 @@
 <?php 
 class BaseDeDonnees{
-    private $ADR_MYSQL='127.0.0.1';
-    private $USR_MYSQL='root';
-    private $PSW_MYSQL='';
-    private $DB_MYSQL='boutique';
+    private $ADR_MYSQL;
+    private $USR_MYSQL;
+    private $PSW_MYSQL;
+    private $DB_MYSQL;
     private $linkDB=NULL;
+    
+    function __construct($adr='127.0.0.1',$user='root',$pswd='',$db='boutique')
+    {
+        $this->ADR_MYSQL=$adr;
+        $this->USR_MYSQL=$user;
+        $this->PSW_MYSQL=$pswd;
+        $this->DB_MYSQL=$db;
+        $this->connectDB();
+    }
     private function connectDB(){
         if($this->linkDB==NULL)
         {
