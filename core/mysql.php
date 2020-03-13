@@ -64,5 +64,8 @@ class BaseDeDonnees{
         }
         return $arr;
     }
+    public function updateImageProduct($imgPath,$idp){
+            $this->query("UPDATE `produit` SET `imgurl`='$imgPath' WHERE idp=$idp");
+    }
 }
 ?>

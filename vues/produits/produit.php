@@ -33,7 +33,7 @@ if(isset($_GET['idp'])){
         <hr/>
     </div>
     <div class="image inline-block">
-        <img src="img/<?= $result['imgurl'] ?>" alt="">
+        <img src="core/image.php?idp=<?= $result['idp4'] ?>" alt="">
         <br/>
         <button class="btn">Ajouter</button>
     </div>

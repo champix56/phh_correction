@@ -1,6 +1,15 @@
 <?php 
 $result=NULL;
+$baseDir="";
+if(isset($_GET['idp']) && count($_FILES)>0){
+    $bddImgUrl="produits/".$_FILES['image']['name'];
+    $baseDir="img/".$bddImgUrl;
+    if(move_uploaded_file($_FILES['image']['tmp_name'],$baseDir))
+    {
+        $db->updateImageProduct($bddImgUrl,$_GET["idp"]);
+    }
 
+}
 if(isset($_GET['idp'])){
     $result=$db->getProduit($_GET['idp']);
 } ?>
@@ -11,7 +20,7 @@ if(isset($_GET['idp'])){
     .form-produit h2, .form-produit h3{
         margin-left:15%;
     }
-    .form-produit .h2{
+    .form-produit h3{
         text-decoration:underline;
     }
     .form-produit .content{
