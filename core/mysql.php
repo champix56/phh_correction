@@ -49,5 +49,20 @@ class BaseDeDonnees{
         }
         return $arr;
     }
+    
+    public function addPanier($idp){
+        if(!isset($_SESSION["uid"]))return false;
+        $this->query("INSERT INTO `ajouter_panier`(`idp`,`idcl`,`prix`) VALUES ($idp, (SELECT idcl FROM user WHERE login='".$_SESSION["uid"]."'),  (SELECT prix FROM produit WHERE ipd=$idp));");
+    }
+    public function getPanier(){
+        if(!isset($_SESSION["uid"]))return false;
+        $ret=$this->query("SELECT `idcl`, PR.`idp` AS idp, PA.`prix` AS prix FROM `ajouter_panier` PA ,`produit` PR WHERE PA.idp=PR.idp AND idcl=(SELECT idcl FROM client WHERE login='".$_SESSION["uid"]."');");
+        $arr=array();
+        while($uneligne=mysqli_fetch_array($ret))
+        {
+            array_push($arr,array($uneligne["titre"],$uneligne["prix"]));
+        }
+        return $arr;
+    }
 }
 ?>

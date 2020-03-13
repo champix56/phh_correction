@@ -23,6 +23,20 @@
             }
         }
     }
+    function addPanier($idp){
+        if(!isset($_GET['addCart'])){
+            $db->addPanier($idp);
+        }
+        $location='?';
+        $i=0;
+        foreach ($_GET as $key => $value) {
+            if($i==0)$location.='?';
+            else $location.='&';
+            $location.=$key.'='.$value;
+            $i++;
+        }
+        header('Location:$location');
+    }
     include_once('mysql.php');
     //je creer l'objet sql pour ma page 
     $db=new BaseDeDonnees();  // var_dump($db);
