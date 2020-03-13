@@ -1,4 +1,10 @@
-<style>
+<?php 
+$result=NULL;
+
+if(isset($_GET['idp'])){
+    $result=$db->getProduit($_GET['idp']);
+} ?>
+    <style>
     .form-produit label{
         font-size:20pt;
     }
@@ -35,35 +41,44 @@
         padding-left:15%;
         padding-right:150px;
     }
+    .form-produit img{
+        max-width:250px;
+        height:300px;
+        size:auto;
+    }
 </style>
 <div class="form-produit">
-    <h2>Edition d'un produit > id : 0</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+    <h2>Edition d'un produit > <?php if($result!=NULL)echo 'id : '.$result["idp"];else echo 'Nouveau';?></h4></h2>
     <div class="button-container">
         <hr/>
     </div>
     <div class="content">
         <label for="titre">Titre :</label>
         <br/>
-        <input type="text" name="titre">
+        <input type="text" name="titre" <?php if($result!=NULL)echo 'value="'.$result["titre"].'" ';?>>
         <br/>
         <label for="description">Description :</label>
         <br/>
-        <textarea name="description" placeholder="512 car. max"></textarea>
+        <textarea name="description" placeholder="512 car. max"><?php 
+        if($result!=NULL)echo $result["description"];?></textarea>
         <br/>
         <div class="inline-block prix">
             <label for="prix">Prix :</label>
             <br/>
-            <input type="number" name="prix"  class="form-control" min="0.01" max="" step="0.01">
+            <input type="number" name="prix"  class="form-control" min="0.01" max="" step="0.01" <?php if($result!=NULL)echo 'value="'.$result["prix"].'" ';?>>
         </div>
         <div class="inline-block">
             <label for="image">Image :</label>
             <br/>
-            <input type="file" name="image">
+            <input type="file" name="image" >
         </div>
        
     </div>
     <div class="image">
-        <img src="img/produits/0.png" alt="">
+        <img src="img/<?php 
+        if($result!=NULL)echo $result["imgurl"];
+        else echo "produits/0.png";?>" alt="">
     </div>
     
     <div class="button-container">
@@ -71,4 +86,5 @@
         <input type="reset" value="effacer" class="btn btn-error">
         <input type="submit" value="Enregistrer" class="btn btn-success">
     </div>
+</form>
 </div>
