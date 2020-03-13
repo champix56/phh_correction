@@ -37,7 +37,15 @@
 }
 </style>
 <div class="produits">
-    <h2>Liste des produits</h2>
+    <h2>Liste des produits<?php
+    $arrProduits=NULL;
+    if(isset($_GET['search'])){
+        echo '<br/>Pour la recherche : '.$_GET["search"];
+        $arrProduits=$db->getProduits($_GET["search"]);
+    }
+    else  $arrProduits=$db->getProduits();
+    //var_dump($arrProduits);
+    ?></h2>
     <table>
         <thead>
             <tr class="header">
@@ -49,17 +57,21 @@
             </tr>
         </thead>
         <tbody>
+            <?php
+            foreach ($arrProduits as $unProduit) 
+            { ?>
             <tr><td colspan="5"><hr/>   </td></tr>
             <tr>
-                <td class="idp">0</td>
-                <td class="image"><img src="img/produits/0.png" alt=""></td>
-                <td class="titre"><h3>produit 0</h3>Description courte</td>
-                <td class="prix">0.00&euro;</td>
+                <td class="idp"><?=  $unProduit["idp"] ?></td>
+                <td class="image"><img src="img/<?=  $unProduit["imgurl"]  ?>" alt=""></td>
+                <td class="titre"><h3><?=  $unProduit["titre"] ?></h3>Description:<br/><?=  $unProduit["description"] ?></td>
+                <td class="prix"><?=  $unProduit["prix"] ?>&euro;</td>
                 <td class="panier">
-                    <button type="button" class="btn btn-primary">Voir</button>
+                    <a href="?page=produit&idp=<?=  $unProduit["idp"] ?>"><button type="button" class="btn btn-primary">Voir</button></a>
                     <button type="button" class="btn btn-success">Ajouter</button>
                 </td>
             </tr>
+            <?php } ?>
         </tbody>
     </table>
 </div>
